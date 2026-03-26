@@ -56,7 +56,9 @@
         <h1 class="text-3xl md:text-5xl font-bold leading-tight tracking-tight" data-ja="試着の記録を、<br>もっとスマートに" data-en="Track your try-ons,<br>smartly.">Track your try-ons,<br>smartly.</h1>
         <p class="mt-6 text-text-secondary text-base md:text-lg leading-relaxed max-w-lg mx-auto md:mx-0" data-ja="ブランド・サイズ・着心地を写真と一緒に記録。AIがタグを読み取り、面倒な入力を自動化。あなただけのフィッティングライブラリを作りましょう。" data-en="Record brand, size, and fit with photos. AI reads clothing tags to automate tedious data entry. Build your personal fitting library.">Record brand, size, and fit with photos. AI reads clothing tags to automate tedious data entry. Build your personal fitting library.</p>
         <div class="mt-8 flex justify-center md:justify-start">
-          <span class="inline-flex items-center gap-2 bg-accent/10 text-text-primary font-medium px-6 py-3 rounded-full text-sm" data-ja="Coming Soon — App Store で公開予定" data-en="Coming Soon on the App Store">Coming Soon on the App Store</span>
+          <a href="https://apps.apple.com/app/apple-store/id6760638483?pt=128555262&ct=website-hero&mt=8" target="_blank" rel="noopener noreferrer">
+            <img id="appstore-badge" src="./download-on-the-app-store-en-us/black.svg" alt="Download on the App Store" class="h-12">
+          </a>
         </div>
       </div>
       <div class="mt-12 md:mt-0 md:flex-1 flex justify-center">
@@ -249,6 +251,10 @@
       },
     };
 
+    const badgeSrcs = { en: './download-on-the-app-store-en-us/black.svg', ja: './download-on-the-app-store-ja-jp/black.svg' };
+    const badgeAlts = { en: 'Download on the App Store', ja: 'App Storeからダウンロード' };
+    const appstoreBadge = document.getElementById('appstore-badge');
+
     function applyLang() {
       document.documentElement.lang = lang;
       document.title = titles[lang];
@@ -256,6 +262,8 @@
       document.querySelectorAll('[data-ja][data-en]').forEach(el => {
         el.innerHTML = el.getAttribute('data-' + lang);
       });
+      appstoreBadge.src = badgeSrcs[lang];
+      appstoreBadge.alt = badgeAlts[lang];
       updatePricing();
     }
 
