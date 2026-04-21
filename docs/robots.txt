@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://adtak.github.io/onme-pages/sitemap.xml
